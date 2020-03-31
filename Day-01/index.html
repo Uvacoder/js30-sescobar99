@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">Bruja</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">Miau</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">Otro gato</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">Coscorron</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">Pipipipipi</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">eso eso</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">Ta Ta Ta</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">Perro arrepentido</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">Que paso?</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/Quien anda ahi.mp3"></audio>
+  <audio data-key="83" src="sounds/Miau Quico.mp3"></audio>
+  <audio data-key="68" src="sounds/Otro gato.mp3"></audio>
+  <audio data-key="70" src="sounds/Coscorron.mp3"></audio>
+  <audio data-key="71" src="sounds/Pipipipi.mp3"></audio>
+  <audio data-key="72" src="sounds/Eso.mp3"></audio>
+  <audio data-key="74" src="sounds/Tatatata.mp3"></audio>
+  <audio data-key="75" src="sounds/Perro arrepentido.mp3"></audio>
+  <audio data-key="76" src="sounds/QUE PASÓ, QUE PASÓ, VAMOS AHI Don Ramón.mp3"></audio>
+
+  <script>
+
+
+
+
+    function removeTransition(e) {
+      if (e.propertyName !== 'transform') {
+        return;
+      } else {
+        this.classList.remove('playing');
+      }
+    }
+
+
+
+    const keys = document.querySelectorAll('.key');
+    const audios = document.getElementsByTagName('audio');
+    console.log(keys);
+    console.log(audios);
+
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+    window.addEventListener('keydown', function (e) {
+      const audio = document.querySelector(`audio[data-key = '${e.keyCode}']`);
+      const key = document.querySelector(`.key[data-key = '${e.keyCode}']`);
+      if (!audio) {
+        return;
+
+      } else {        
+       
+        for (let audio of audios) {
+          audio.pause();
+        }
+        audio.currentTime = 0;
+        audio.play();
+
+        key.classList.add('playing');
+        console.log(audio);
+        console.log(key);
+
+      }
+    });
+
+
+
+  </script>
+</body>
+
+</html>
