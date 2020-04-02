@@ -2,6 +2,10 @@ html {
   font-size: 10px;
   background: url(https://media.metrolatam.com/2019/02/20/elchavodel8publinews-2122b7a3d8bc0e4ef0ca94c65ca0eb49-1200x800.jpg) ;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top  center ;
+  background-attachment: fixed;
+  background-color: #464646;
 }
 
 body,html {
