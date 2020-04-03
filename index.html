@@ -34,22 +34,9 @@
         background-size: cover;
     }
 
-    /* First image (Logo. Full height) */
-    .bgimg-1 {
-        background-image: url('images/JS3-social-share.png');
-        min-height: 100%;
-    }
-
-    /* Second image (Portfolio) */
-    .bgimg-2 {
-        background-image: url("images/bottom.png");
-        min-height: 400px;
-    }
-
-    /* Third image (Contact) */
-    .bgimg-3 {
-        background-image: url("images/github.png");
-        min-height: 400px;
+    .responsive {
+        width: 100%;
+        height: auto;
     }
 
     .w3-wide {
@@ -102,9 +89,7 @@
 
     <!-- First Parallax Image with Logo Text -->
     <div class="bgimg-1 w3-display-container" id="home">
-        <div class="w3-display-middle" style="white-space:nowrap;">
-
-        </div>
+        <img src="images/JS3-social-share.png" alt="JS30" class="responsive">
     </div>
 
     <!-- Container (About Section) -->
@@ -121,125 +106,82 @@
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat.</p> -->
 
-        <p class="w3-large w3-center w3-padding-16">Current progress:</p>
-        <p class="w3-wide"><i class="fa fa-tasks"></i>First 10 days</p>
-        <div class="w3-light-grey">
-            <div class="w3-container w3-padding-small w3-green w3-center" style="width:10%">1</div>
-        </div>
-        <p class="w3-wide"><i class="fa fa-tasks"></i>Next 10 days</p>
-        <div class="w3-light-grey">
-            <div class="w3-container w3-padding-small w3-red w3-center" style="width:0%">0</div>
-        </div>
-        <p class="w3-wide"><i class="fa fa-tasks"></i>Last 10 days</p>
-        <div class="w3-light-grey">
-            <div class="w3-container w3-padding-small w3-red w3-center" style="width:0%">0</div>
-        </div>
-    </div>
+        <p class="w3-large w3-center w3-padding-16"><i class="fa fa-tasks"></i>Current progress: 2/30</p>
 
-  
-
-    <!-- Second Parallax Image with Portfolio Text -->
-    <div class="bgimg-2 w3-display-container">
+        <div class="w3-light-grey">
+            <div class="w3-container w3-padding-small w3-red w3-center" style="width:6.67%">2</div>
+        </div>
 
     </div>
+
 
     <!-- Container (Portfolio Section) -->
     <div class="w3-content w3-container w3-padding-64" id="portfolio">
         <h3 class="w3-center">MY WORK</h3>
 
-        <a href="Day-01/index.html">
-            <img alt="Day-01" src="images/Day1preview.jpg"
-            width=75% height=35%>
-         </a>
-
-         <a href="Day-02/index.html">
-            <img alt="Day-02" src="images/Day2preview.jpg"
-            width=75% height=35%>
-         </a>
-        <!-- <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to access
-                </em></p><br> -->
+        <p class="w3-center"><em> Click on the images to access
+            </em></p><br>
 
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-        <!-- <div class="w3-row-padding w3-center">
-            <div class="w3-col m3">
-                <img src="/w3images/p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="The mist over the mountains">
+        <div class="w3-row-padding w3-center w3-section">
+            <div class="w3-half ">
+                <a href="Day-01/index.html">
+                    <img src="images/Day01preview.jpg" width=100% height=100% class="w3-hover-opacity" alt="Day-01">
+                </a>
+                <p>Day 01</p>
             </div>
 
-            <div class="w3-col m3">
-                <img src="/w3images/p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="Coffee beans">
+            <div class="w3-half ">
+                <a href="Day-02/index.html">
+                    <img src="images/Day02preview.jpg" width=100% height=100% class="w3-hover-opacity" alt="Day-02">
+                </a>
+                <p>Day 02</p>
             </div>
-
-            <div class="w3-col m3">
-                <img src="/w3images/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="Bear closeup">
-            </div>
-
-            <div class="w3-col m3">
-                <img src="/w3images/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="Quiet ocean">
-            </div>
-        </div> -->
+        </div>
 
         <!-- <div class="w3-row-padding w3-center w3-section">
-            <div class="w3-col m3">
-                <img src="/w3images/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="The mist">
+            <div class="w3-half ">
+                <a href="Day-00/index.html">
+                    <img src="images/Day00preview.jpg"  width=100% height=100% class="w3-hover-opacity" alt="Day-00">
+                </a>
+                <p>Day 00</p>
             </div>
 
-            <div class="w3-col m3">
-                <img src="/w3images/p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="My beloved typewriter">
+            <div class="w3-half ">
+                <a href="Day-00/index.html">
+                    <img src="images/Day00preview.jpg"  width=100% height=100% class="w3-hover-opacity" alt="Day-00">
+                </a>
+                <p>Day 00</p>
             </div>
-
-            <div class="w3-col m3">
-                <img src="/w3images/p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="Empty ghost train">
-            </div>
-
-            <div class="w3-col m3">
-                <img src="/w3images/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity"
-                    alt="Sailing">
-            </div>
-            <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
         </div> -->
+
     </div>
 
-    <!-- Modal for full size images on click-->
-    <!-- <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
-                class="fa fa-remove"></i></span>
-        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-            <img id="img01" class="w3-image">
-            <p id="caption" class="w3-opacity w3-large"></p>
-        </div>
-    </div> -->
-
-    <!-- Third Parallax Image with Portfolio Text -->
-    <!-- <div class="bgimg-3 w3-display-container">
-        
-    </div> -->
+   
 
     <!-- Container (Contact Section) -->
     <div class="w3-content w3-container w3-padding-64" id="contact">
         <h3 class="w3-center">More info</h3>
 
         <p>
-            <a href="https://javascript30.com/" target="_blank"><i class="fa fa-code w3-hover-opacity"> Wes Bos' JS30 WebPage</i></a>
+            <a href="https://javascript30.com/" target="_blank"><i class="fa fa-code w3-hover-opacity"> Wes Bos' JS30
+                    WebPage</i></a>
         </p>
         <p>
-            <a href="https://twitter.com/ManuCastrillonM/status/1243345922580504584" target="_blank"><i class="fa fa-twitter w3-hover-opacity"> The challenge</i> </a>
+            <a href="https://twitter.com/ManuCastrillonM/status/1243345922580504584" target="_blank"><i
+                    class="fa fa-twitter w3-hover-opacity"> The challenge</i> </a>
         </p>
         <p>
-            <a href="https://twitter.com/search?q=%23CodexJavaScript30&src=typed_query&f=live" target="_blank"><i class="fa fa-twitter w3-hover-opacity"> #CodexJavaScript30 </i></a>
-            
+            <a href="https://twitter.com/search?q=%23CodexJavaScript30&src=typed_query&f=live" target="_blank"><i
+                    class="fa fa-twitter w3-hover-opacity"> #CodexJavaScript30 </i></a>
+
         </p>
 
         <p>
-            <a href="https://github.com/sescobar99/javascript30-challenge" target="_blank"><i class="fa fa-github w3-hover-opacity"> My Github repository for the challenge </i></a>
+            <a href="https://github.com/sescobar99/javascript30-challenge" target="_blank"><i
+                    class="fa fa-github w3-hover-opacity"> My Github repository for the challenge </i></a>
         </p>
-        
+
 
         <!-- <div class="w3-row w3-padding-32 w3-section">
             <div class="w3-col m4 w3-container">
@@ -275,21 +217,15 @@
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-64 ">
         <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-        <div class="w3-xlarge w3-section">          
+        <div class="w3-xlarge w3-section">
         </div>
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
                 class="w3-hover-text-green">w3.css</a></p>
-        <p><a href="https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm" target="_blank">Original Template</a> </p>
+        <p><a href="https://www.w3schools.com/w3css/tryw3css_templates_parallax.htm" target="_blank">Original
+                Template</a> </p>
     </footer>
 
     <script>
-        // Modal Image Gallery
-        function onClick(element) {
-            document.getElementById("img01").src = element.src;
-            document.getElementById("modal01").style.display = "block";
-            var captionText = document.getElementById("caption");
-            captionText.innerHTML = element.alt;
-        }
 
         // Change style of navbar on scroll
         window.onscroll = function () { myFunction() };
