@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+
+<body>
+  <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
+
+  <div class="controls row">
+
+    <div class="column">
+      <p>
+        <label for="spacing">Spacing:</label>
+        <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+      </p>
+
+      <p>
+        <label for="brightness">Brightness:</label>
+        <input id="brightness" type="range" name="brightness" min="0" max="200" value="100" data-sizing="%">
+      </p>
+
+      <p>
+        <label for="sepia">Sepia:</label>
+        <input id="sepia" type="range" name="sepia" min="0" max="100" value="0" data-sizing="%">
+      </p>
+
+      <p>
+        <label for="invert">Invert:</label>
+        <input id="invert" type="range" name="invert" min="0" max="100" value="0" data-sizing="%">
+      </p>
+
+    </div>
+
+    <div class="column">
+      <p>
+        <label for="blur">Blur:</label>
+        <input id="blur" type="range" name="blur" min="0" max="25" value="0" data-sizing="px">
+      </p>
+
+      <p>
+        <label for="saturate">Saturate:</label>
+        <input id="saturate" type="range" name="saturate" min="0" max="200" value="100" data-sizing="%">
+      </p>
+
+      <p>
+        <label for="grayscale">Grayscale:</label>
+        <input id="grayscale" type="range" name="grayscale" min="0" max="100" value="0" data-sizing="%">
+      </p>
+
+      <p>
+        <label for="base">Base Color:</label>
+        <input id="base" type="color" name="base" value="#000000">
+      </p>
+
+    </div>
+
+    <div class="column">
+
+      <p>
+        <label for="hue-rotate">Hue-rotate:</label>
+        <input id="hue-rotate" type="range" name="hue-rotate" min="0" max="360" value="0" data-sizing="deg">
+      </p>
+
+      <p>
+        <label for="contrast">Contrast:</label>
+        <input id="contrast" type="range" name="contrast" min="0" max="200" value="100" data-sizing="%">
+      </p>
+
+      <p>
+        <label for="opacity">Opacity:</label>
+        <input id="opacity" type="range" name="opacity" min="0" max="100" value="100" data-sizing="%">
+      </p>
+
+      <p>
+        <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+        </p>
+        <p><label for="file" style="cursor: pointer; color: blue;">Upload Image</label></p>
+        
+      
+      </p>
+    </div>
+  </div>
+
+  <img id="image"
+    src="https://images.unsplash.com/photo-1557008075-7f2c5efa4cfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=642&q=80">
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+      }
+    }
+
+    :root {
+      --base: #000000;
+      --spacing: 10px;
+      --blur: 0px;
+      --brightness: 100%;
+      --contrast: 100%;
+      --grayscale: 0%;
+      --hue-rotate: 0deg;
+      --invert: 0%;
+      --opacity: 100%;
+      --saturate: 100%;
+      --sepia: 0%;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur)) brightness(var(--brightness)) contrast(var(--contrast)) grayscale(var(--grayscale)) hue-rotate(var(--hue-rotate)) invert(var(--invert)) opacity(var(--opacity)) saturate(var(--saturate)) sepia(var(--sepia));
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+    /*
+    misc styles, nothing to do with CSS variables
+    */
+
+    body {
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 30px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width: 100px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll('.controls input');
+
+    function handleUpdate() {
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    // inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+    var loadFile = function (event) {
+      var image = document.getElementById('image');
+      image.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+  </script>
+
+
+</body>
+
+</html>
