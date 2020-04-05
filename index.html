@@ -107,10 +107,10 @@
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
             laboris nisi ut aliquip ex ea commodo consequat.</p> -->
 
-        <p class="w3-large w3-center w3-padding-16"><i class="fa fa-tasks"></i>Current progress: 4/30</p>
+        <p id="progressBarText" class="w3-large w3-center w3-padding-16"><i class="fa fa-tasks"></i></p>
 
         <div class="w3-light-grey">
-            <div class="w3-container w3-padding-small w3-red w3-center" style="width: 13.33%"></div>
+            <div id="progressBar" class="w3-container w3-padding-small w3-center "></div>
         </div>
 
     </div>
@@ -125,15 +125,15 @@
 
         <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
         <div class="w3-row-padding w3-center w3-section">
-            <div class="w3-half ">
-                <a href="Day-01/index.html">
+            <div class="w3-half day">
+                <a href="day-01/">
                     <img src="images/Day01preview.jpg" width=100% height=100% class="w3-hover-opacity" alt="Day-01">
                 </a>
                 <p>Day 01</p>
             </div>
 
-            <div class="w3-half ">
-                <a href="Day-02/index.html">
+            <div class="w3-half day">
+                <a href="day-02/">
                     <img src="images/Day02preview.jpg" width=100% height=100% class="w3-hover-opacity" alt="Day-02">
                 </a>
                 <p>Day 02</p>
@@ -141,16 +141,16 @@
         </div>
 
         <div class="w3-row-padding w3-center w3-section">
-            <div class="w3-half ">
-                <a href="Day-03/index.html">
-                    <img src="images/Day03preview.jpg"  width=100% height=100% class="w3-hover-opacity" alt="Day-03">
+            <div class="w3-half day">
+                <a href="day-03/">
+                    <img src="images/Day03preview.jpg" width=100% height=100% class="w3-hover-opacity" alt="Day-03">
                 </a>
                 <p>Day 03</p>
             </div>
 
-            <div class="w3-half ">
-                <a href="Day-04/">
-                    <img src="images/Day04preview.jpg"  width=100% height=100% class="w3-hover-opacity" alt="Day-04">
+            <div class="w3-half day">
+                <a href="day-04/">
+                    <img src="images/Day04preview.jpg" width=100% height=100% class="w3-hover-opacity" alt="Day-04">
                 </a>
                 <p>Day 04</p>
             </div>
@@ -158,14 +158,14 @@
 
         <!-- <div class="w3-row-padding w3-center w3-section">
             <div class="w3-half ">
-                <a href="Day-05/index.html">
+                <a href="day-05/">
                     <img src="images/Day05preview.jpg"  width=100% height=100% class="w3-hover-opacity" alt="Day-05">
                 </a>
                 <p>Day 05</p>
             </div>
 
             <div class="w3-half ">
-                <a href="Day-06/index.html">
+                <a href="day-06/">
                     <img src="images/Day06preview.jpg"  width=100% height=100% class="w3-hover-opacity" alt="Day-06">
                 </a>
                 <p>Day 06</p>
@@ -174,7 +174,7 @@
 
     </div>
 
-   
+
 
     <!-- Container (Contact Section) -->
     <div class="w3-content w3-container w3-padding-64" id="contact">
@@ -264,6 +264,29 @@
                 x.className = x.className.replace(" w3-show", "");
             }
         }
+
+        function updateProgressBar() {
+            let nmb_days = document.getElementsByClassName('day').length;
+            let percent_completed = (nmb_days * 100 / 30).toFixed(2);
+            const progressBar = document.getElementById('progressBar');
+
+            progressBar.style.width = percent_completed + '%';
+            progressBar.innerText = percent_completed + '%';
+
+            if (nmb_days <= 4) { progressBar.classList.add('w3-red'); }
+            else if (nmb_days <= 8) { progressBar.classList.add('w3-deep-orange'); }
+            else if (nmb_days <= 12) { progressBar.classList.add('w3-orange'); }
+            else if (nmb_days <= 16) { progressBar.classList.add('w3-amber'); }
+            else if (nmb_days <= 20) { progressBar.classList.add('w3-yellow'); }
+            else if (nmb_days <= 24) { progressBar.classList.add('w3-lime'); }
+            else if (nmb_days <= 29) { progressBar.classList.add('w3-light-green'); }
+            else { progressBar.classList.add('w3-green'); }
+
+            document.getElementById('progressBarText').appendChild(document.createTextNode(` Current progress: ${nmb_days}/30`));       
+
+        }
+
+        updateProgressBar();
     </script>
 
 </body>
