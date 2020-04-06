@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Panels 💪</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/ico" href="../images/codex-logo.jpeg" />
+</head>
+
+<body>
+  <style>
+    html {
+      box-sizing: border-box;
+      background: #ffc600;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 400;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+    }
+
+    body {
+      margin: 0;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    .panels {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background: #6B0F9C;
+      box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+      color: white;
+      text-align: center;
+      align-items: center;
+      /* Safari transitionend event.propertyName === flex */
+      /* Chrome + FF transitionend event.propertyName === flex-grow */
+      transition:
+        font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+        background 0.2s;
+      font-size: 15px;
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel1 {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/COVID-19_Outbreak_World_Map.svg/1280px-COVID-19_Outbreak_World_Map.svg.png);
+    }
+
+    .panel2 {
+      background-image: url(https://www.who.int/images/default-source/health-topics/coronavirus/gettyimages-943428252.tmb-1920v.jpg?Culture=es&sfvrsn=9bea021c_6);
+    }
+
+    .panel3 {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/2019-nCoV-CDC-23312.png/767px-2019-nCoV-CDC-23312.png);
+    }
+
+    .panel4 {
+      background-image: url(https://www.who.int/images/default-source/health-topics/coronavirus/gettyimages-1181575980.tmb-1920v.jpg?Culture=en&sfvrsn=7ec493b8_4);
+    }
+
+    .panel5 {
+      background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Hospital_Bed_2011_CPR.JPG/1024px-Hospital_Bed_2011_CPR.JPG);
+    }
+
+    /* Flex Children */
+    .panel>* {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+      /* border: 1px solid red; */
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel>*:first-child {
+      transform: translateY(-100%);
+    }
+
+    .panel.open-active>*:first-child {
+      transform: translateY(0%);
+    }
+
+    .panel>*:last-child {
+      transform: translateY(100%);
+    }
+
+    .panel.open-active>*:last-child {
+      transform: translateY(0%);
+    }
+
+
+
+
+    .panel.open {
+      flex: 5;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+      .panel p {
+        font-size: 1em;
+      }
+    }
+  </style>
+
+
+  <div class="panels">
+
+    <div class="panel panel1">
+      <div id='data1'>
+
+      </div>
+      <p>Some data</p>
+      <div id='data2'>
+
+      </div>
+    </div>
+
+    <div class="panel panel2">
+      <div>
+        <ul>
+          <li>Wash your hands regularly with soap and water.</li>
+          <li>Maintain distance between you and people coughing or sneezing.</li>
+          <li>Avoid touching your face.</li>
+        </ul>
+      </div>
+
+      <p>Prevention</p>
+
+      <div>
+        <ul>
+          <li>Cover your mouth and nose when coughing or sneezing.</li>
+          <li>Stay home if you feel unwell.</li>
+          <li>Practice physical distancing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel3">
+      <p>COVID-19 is the infectious disease caused by SARS-CoV-2.
+        It spreads primarily through droplets of saliva or discharge from the nose when an infected person coughs or
+        sneezes</p>
+
+      <p>Covid-19</p>
+
+      <p style="text-shadow: 1px 1px 5px whitesmoke;"><a target="_blank"
+          href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Info taken from</a>
+      </p>
+    </div>
+
+    <div class="panel panel4">
+      <div>
+        <p>
+          Common symptoms include:
+        </p>
+        <ul>
+          <li>Fever</li>
+          <li>Tiredness</li>
+          <li>Dry cough</li>
+        </ul>
+      </div>
+
+      <p>Symptoms</p>
+
+      <div>
+        <p>
+          Other symptoms include:
+        </p>
+        <ul>
+          <li>Shortness of breath</li>
+          <li>Aches and pains</li>
+          <li>Sore throat</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel panel5">
+      <p>Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness.
+        At this time(05/04/2020), there are no specific vaccines or treatments for COVID-19.
+      </p>
+      <p>Treatments</p>
+      <p>However, those affected should receive care to RELIEVE SYMPTOMS. People with serious illness should be
+        HOSPITALIZED. Most patients recover thanks to supportive care.</p>
+
+    </div>
+  </div>
+
+  <script>
+
+    const panels = document.querySelectorAll('.panel');
+
+
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+
+    fetch('https://api.covid19api.com/summary')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        let string = 'Global : \n';
+        let global_summary = myJson.Global;
+
+        for (i in global_summary) {
+          string += i + ': ' + global_summary[i] + '\n';
+        }
+        // console.log(string);
+        document.getElementById('data1').innerText = string;
+
+        let date = new Date(myJson.Date);
+        // console.log(date);
+        document.getElementById('data2').innerHTML = '<a target="_blank" href="https://covid19api.com/">Data retrieved from.</a>' + '  At ' + date.toTimeString();
+
+      });
+  </script>
+
+
+
+</body>
+
+</html>
