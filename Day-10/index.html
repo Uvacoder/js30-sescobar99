@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hold Shift to Check Multiple Checkboxes</title>
+  <link rel="icon" type="image/ico" href="../images/codex-logo.jpeg" />
+</head>
+
+<body>
+  <style>
+    html {
+      font-family: sans-serif;
+      background: #ff2600 ;
+    }
+
+    .inbox {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #F1F1F1;
+    }
+
+    .item:hover {
+      background-color: rgba(7, 181, 250, 0.205);
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.295);
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    input:checked+label {
+      text-decoration: line-through;   
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      transition: background 0.2s;
+      flex: 1;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #D1E2FF;
+    }
+    
+  </style>
+  <!--
+   The following is a common layout you would see in an email client.
+
+   When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  -->
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox" id="cb1">
+      <label for="cb1" >
+        <p>This is an inbox layout.</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb2">
+      <label for="cb2">
+        <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb3">
+      <label for="cb3">
+        <p>Un/Check one item</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb4">
+      <label for="cb4">
+        <p>Hold down your Shift key</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb5">
+      <label for="cb5">
+        <p>Un/Check another item</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb6">
+      <label for="cb6">
+        <p>Everything in between will get un/checked depending on your last action</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb7">
+      <label for="cb7">
+        <p>Weird behaviour from the original solved</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb8">
+      <label for="cb8">
+        <p>If you check(while holding shift) the same item or hold shift the first time you click any item</p>
+      </label>
+    </div>
+    <div class="item">
+      <input type="checkbox" id="cb9">
+      <label for="cb9">
+        <p>All the boxes below will get checked</p>
+      </label>
+    </div>
+  </div>
+
+  <script>
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+    checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
+    let lastChecked;
+
+    function handleCheck(e) {
+      let inBetween = false;
+      let lastOne = false;
+      if (e.shiftKey && (lastChecked !== this) && (lastChecked !== undefined)) {
+        checkboxes.forEach(checkbox => {
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+            lastOne = true;
+          }
+          if (inBetween || lastOne) {
+            checkbox.checked = this.checked;
+            lastOne = false;
+          }
+        });
+      }
+      lastChecked = this;
+    }
+
+  </script>
+</body>
+
+</html>
