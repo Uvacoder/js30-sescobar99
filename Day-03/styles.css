@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+:root {
+  --base: #000000;
+  --spacing: 10px;
+  --blur: 0px;
+  --brightness: 100%;
+  --contrast: 100%;
+  --grayscale: 0%;
+  --hue-rotate: 0deg;
+  --invert: 0%;
+  --opacity: 100%;
+  --saturate: 100%;
+  --sepia: 0%;
+}
+
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur)) brightness(var(--brightness)) contrast(var(--contrast)) grayscale(var(--grayscale)) hue-rotate(var(--hue-rotate)) invert(var(--invert)) opacity(var(--opacity)) saturate(var(--saturate)) sepia(var(--sepia));
+}
+
+.hl {
+  color: var(--base);
+}
+
+/*
+misc styles, nothing to do with CSS variables
+*/
+
+body {
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.controls {
+  margin-bottom: 50px;
+}
+
+input {
+  width: 100px;
+}
