@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Video Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="player">
+    <video class="player__video viewer" src="videos/360.mp4" id="myvideo" poster="images/poster.jpg"></video>
+    <div class="player__controls">
+      <div class="progress">
+        <div class="progress__filled"></div>
+      </div>
+      <button class="player__button toggle" title="Toggle Play">►</button>
+      <button class="player__button time" disabled></button>
+      <button class="player__button restart" title="Restart">↺</button>
+      <button class="player__button mute" title="Mute">🔊</button>
+      <input type="range" name="volume" id="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+      <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+      <button data-skip="-10" class="player__button">« 10s</button>
+      <button data-skip="25" class="player__button">25s »</button>      
+      <button class="player__button fullscreen" title="Fullscreen">⛶</button>
+      <div class="dropup">
+        <button class="player__button dropbtn" title="Quality">⚙</button>
+        <div class="dropup-content">
+          <button class="player__button quality" value="1080">1080</button>
+          <button class="player__button quality" value="720">720</button>
+          <button class="player__button quality" value="360">360</button>
+          <button class="player__button quality" value="240">240</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <script src="scripts.js"></script>
+  
+
+  <style>
+    .dropbtn {
+      /* color: white; */
+      padding: 16px;
+      /* font-size: 16px; */
+      /* border: none; */
+    }
+
+    .dropup {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropup-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      /* min-width: 160px; */
+      bottom: 50px;
+      z-index: 1;
+      font-size: medium;
+    }
+
+    .dropup-content>* {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+
+    }
+
+
+    .dropup-content *:hover {
+      background-color: #ccc
+    }
+
+    .dropup:hover .dropup-content {
+      display: block;
+    }
+  </style>
+</body>
+
+</html>
