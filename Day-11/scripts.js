@@ -55,7 +55,7 @@ function skip() {
     video.currentTime += parseFloat(this.dataset.skip);
     playbackRate.value = 1;
 }
-function skip(seconds){
+function skipSeconds(seconds){
     video.currentTime += seconds;
     playbackRate.value = 1;
 }
@@ -181,9 +181,9 @@ document.addEventListener("keydown", function (e) {
     }else if(e.keyCode == 32){
         togglePlay();
     }else if(e.keyCode == 37){
-        skip(-10);
+        skipSeconds(-10);
     }else if(e.keyCode == 39 ){
-        skip(10);
+        skipSeconds(10);
     }else if(e.keyCode == 77){
         toggleMute();
     }
