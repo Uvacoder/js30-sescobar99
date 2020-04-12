@@ -174,6 +174,8 @@ mute.addEventListener('click', muteVideo);
 document.addEventListener("keydown", function (e) {
     if (e.keyCode == 13) {
         toggleFullScreen();
+    }else if(e.keyCode == 32){
+        togglePlay();
     }
 }, false);
 
