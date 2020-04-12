@@ -55,6 +55,10 @@ function skip() {
     video.currentTime += parseFloat(this.dataset.skip);
     playbackRate.value = 1;
 }
+function skip(seconds){
+    video.currentTime += seconds;
+    playbackRate.value = 1;
+}
 
 function handleRangeUpdate() {
     video[this.name] = this.value;
@@ -176,6 +180,10 @@ document.addEventListener("keydown", function (e) {
         toggleFullScreen();
     }else if(e.keyCode == 32){
         togglePlay();
+    }else if(e.keyCode == 37){
+        skip(-10);
+    }else if(e.keyCode == 39 ){
+        skip(10);
     }
 }, false);
 
