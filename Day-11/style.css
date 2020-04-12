@@ -224,3 +224,9 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+@media (orientation:landscape) and (max-width: 750px) {
+  .hide-on-landscape {
+      display: none;
+  }
+}
