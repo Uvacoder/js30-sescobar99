@@ -119,7 +119,7 @@ function restartVideo() {
     video.currentTime = 0;
 }
 
-function muteVideo() {
+function toggleMute() {
     video.muted = !video.muted;
 }
 
@@ -173,7 +173,7 @@ qualityButtons.forEach(button => button.addEventListener('click', handleQuality)
 
 restart.addEventListener('click', restartVideo);
 
-mute.addEventListener('click', muteVideo);
+mute.addEventListener('click', toggleMute);
 
 document.addEventListener("keydown", function (e) {
     if (e.keyCode == 13) {
@@ -184,6 +184,8 @@ document.addEventListener("keydown", function (e) {
         skip(-10);
     }else if(e.keyCode == 39 ){
         skip(10);
+    }else if(e.keyCode == 77){
+        toggleMute();
     }
 }, false);
 
