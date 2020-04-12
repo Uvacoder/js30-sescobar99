@@ -4,8 +4,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   text-align: center;
-  -webkit-transition: background-image 1s ease-in-out;
-  transition: background-image 1s ease-in-out;
+  -webkit-transition: background-image 5s ease-in-out;
+  transition: background-image 5s ease-in-out;
   font-size: large;
   text-shadow: 1px 1px 0px red ;
   /* , -1px -1px 0px coral;  */

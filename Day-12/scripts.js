@@ -1,5 +1,6 @@
 const image = document.getElementById('myImage');
 const player = document.getElementById('player');
+const cc = document.getElementById('activeCC')
 const backgrounds = 7;
 let actualBackground = 0;
 const pressed = [];
@@ -27,13 +28,14 @@ window.addEventListener('keyup', (e) => {
 function evalCode(code) {
     if (pressed.join('').includes(code[0])) {
         // console.log(code);
-        activateCheatCode(code[0]);
+        activateCheatCode(code);
         pressed.splice(0, longest.length);
     }
 }
 
 function activateCheatCode(code) {
-    image.src = `images/${code}.png`;
+    image.src = `images/${code[0]}.png`;
+    cc.innerText = `Cheat ${code[1]} activated`;
 }
 
 
