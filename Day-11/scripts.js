@@ -17,6 +17,7 @@ const mute = document.querySelector('.player__button.mute');
 const qualityButtons = document.querySelectorAll('.player__button.quality');
 const restart = document.querySelector('.player__button.restart');
 const time = document.querySelector('.player__button.time');
+const playbackRate = document.getElementById('playbackRate');
 
 // const restart;
 
@@ -52,6 +53,7 @@ function updateVolumeButton() {
 
 function skip() {
     video.currentTime += parseFloat(this.dataset.skip);
+    playbackRate.value = 1;
 }
 
 function handleRangeUpdate() {
@@ -175,4 +177,4 @@ document.addEventListener("keydown", function (e) {
     }
 }, false);
 
-;
+fullscreen.addEventListener('click', toggleFullScreen);
