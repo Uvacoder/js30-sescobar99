@@ -61,30 +61,29 @@ function handleRangeUpdate() {
 function handleProgress() {
     const percent = (video.currentTime / video.duration) * 100;
     progressBar.style.flexBasis = `${percent}%`;
-    time.textContent = `${secondsToString(video.currentTime.toFixed())}/${secondsToString(video.duration.toFixed())}`;    
+    time.textContent = `${secondsToString(video.currentTime.toFixed())}/${secondsToString(video.duration.toFixed())}`;
 }
 
 
-function secondsToString(seconds){
-    let hours =  Math.floor(seconds  / 3600);
-    seconds -= (hours*3600);
-    let minutes =  Math.floor(seconds / 60);
+function secondsToString(seconds) {
+    let hours = Math.floor(seconds / 3600);
+    seconds -= (hours * 3600);
+    let minutes = Math.floor(seconds / 60);
     seconds -= (minutes * 60);
 
-    return hours > 0 ? 
-    (str_pad_left(hours,'0',2)+':'+str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2)) 
-    : 
-    (str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2));
+    return hours > 0 ?
+        (str_pad_left(hours, '0', 2) + ':' + str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2))
+        :
+        (str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2));
 }
 
-function str_pad_left(string,pad,length) {
-    return (new Array(length+1).join(pad)+string).slice(-length);
+function str_pad_left(string, pad, length) {
+    return (new Array(length + 1).join(pad) + string).slice(-length);
 }
 
 function scrub(e) {
     const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
     video.currentTime = scrubTime;
-    console.dir(e);
 }
 
 function toggleFullScreen() {
@@ -103,7 +102,7 @@ function toggleFullScreen() {
     }
 }
 
-function handleQuality() {   
+function handleQuality() {
     let currentTime = video.currentTime;
     video.src = `videos/${this.value}.mp4`;
     video.currentTime = currentTime;
@@ -114,8 +113,28 @@ function restartVideo() {
     video.currentTime = 0;
 }
 
-function muteVideo(){
+function muteVideo() {
     video.muted = !video.muted;
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropup content */
+function myFunction() {
+    document.getElementById("myDropup").classList.toggle("show");
+}
+
+// Close the dropup menu if the user clicks outside of it
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropups = document.getElementsByClassName("dropup-content");
+        var i;
+        for (i = 0; i < dropups.length; i++) {
+            var openDropup = dropups[i];
+            if (openDropup.classList.contains('show')) {
+                openDropup.classList.remove('show');
+            }
+        }
+    }
 }
 
 //listeners
@@ -132,6 +151,7 @@ skipButtons.forEach(button => button.addEventListener('click', skip));
 
 ranges.forEach(range => range.addEventListener('click', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 
 progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => {
@@ -149,16 +169,10 @@ restart.addEventListener('click', restartVideo);
 
 mute.addEventListener('click', muteVideo);
 
-
-
-
-
 document.addEventListener("keydown", function (e) {
     if (e.keyCode == 13) {
         toggleFullScreen();
     }
 }, false);
-
-console.log(fullscreen.addEventListener('click', toggleFullScreen));
 
 ;

@@ -10,9 +10,9 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  background: #7A419B;
+  background: rgb(0, 0, 0);
   min-height: 100vh;
-  background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);
+  background: linear-gradient(135deg, #7c1599 0%,#921099 48%,#7e4ae8 100%);   
   background-size: cover;
   align-items: center;
   justify-content: center;
@@ -166,4 +166,60 @@ input[type=range]::-moz-range-thumb {
   border-radius: 50px;
   background: #ffc600;
   cursor: pointer;
+}
+
+/* Dropup Button */
+.dropbtn {
+  background: none;
+  color: white;
+  padding: 15% 0 0 0;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+}
+
+/* The container <div> - needed to position the dropup content */
+.dropup {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  align-items: center;
+}
+
+/* Dropup Content (Hidden by Default) */
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  bottom: 100%;
+  right: 20%;
+}
+
+/* Buttons inside the dropup */
+.dropup-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropup Buttons on hover */
+.dropup-content button:hover {
+  background-color: #ddd
+}
+
+/* Show the dropup menu (use JS to add this class to the .dropup-content container when the user clicks on the dropup button) */
+.show {
+  display: block;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
