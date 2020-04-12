@@ -7,9 +7,8 @@ body {
   -webkit-transition: background-image 1s ease-in-out;
   transition: background-image 1s ease-in-out;
   font-size: large;
-  /* text-shadow: 1px 1px 0px red;  */
-  font-family: 'diplomaregular', Arial, sans-serif;
-  /* //, -1px -1px 0px coral; */
+  text-shadow: 1px 1px 0px red ;
+  /* , -1px -1px 0px coral;  */
 }
 
 @font-face {
@@ -20,10 +19,27 @@ body {
   font-style: normal;
 
 }
+
 ul {
   list-style-type: none;
   margin: 10px;
+  text-align: center;
 }
+
+ul span {
+  display: inline-block;
+  width: 200px;
+  text-align: left;
+}
+
+ul span:first-of-type {
+  text-align: right
+}
+
+.saf{  
+  font-family: 'diplomaregular', Arial, sans-serif;
+}
+
 audio {
   display: inline;
 }
