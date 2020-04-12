@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <!-- <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script> -->
+  <link rel="icon" type="image/ico" href="../images/codex-logo.jpeg" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <audio id="player" loop controls>
+    <source src="soundtrack.mp3" type="audio/mp3">
+  </audio>
+  <br>
+  <p>Cheatcodes list</p>
+  <div id="myItemList"></div>
+  <img src="images/CJ.png" id="myImage" />
+
+
+  <script>
+
+    const image = document.getElementById('myImage');
+    const player = document.getElementById('player');    
+    const backgrounds = 7;
+    let actualBackground = 0;
+    const pressed = [];
+    const secretCodes = [
+      ['TURNDOWNTHEHEAT', 'Clear Wanted Level'],
+      ['BTCDBCB', 'Fat Body'],
+      ['BUFFMEUP', 'Muscular Body'],
+      ['KVGYZQK', 'Skinny Body'],
+      ['BRINGITON', 'Six Star Wanted Level'],
+      ['ROCKETMAN', 'Spawn Jetpack'],
+      ['IWPRTON', 'Spawn Rhino'],
+      ['AIYPWZQP', 'Spawn Parachute'],
+      ['KGGGDKP', 'Spawn Vortex Hovercraft'],
+    ];
+    const longest = secretCodes.reduce(function (a, b) { return a[0].length > b[0].length ? a : b; })[0];
+
+    window.addEventListener('keyup', (e) => {
+      console.log(e.key);
+      pressed.push(e.key);
+      pressed.splice(-longest.length - 1, pressed.length - longest.length);
+      secretCodes.forEach(code => evalCode(code));
+      // console.log(pressed);
+    });
+
+    function evalCode(code) {
+      if (pressed.join('').includes(code[0])) {        
+        // console.log(code);
+        activateCheatCode(code[0]);
+        pressed.splice(0, longest.length);
+      }
+    }
+
+    function activateCheatCode(code) {
+      image.src = `images/${code}.png`;
+    }
+
+
+    player.addEventListener('play', () => {
+      player.style.display = 'none';
+    });
+
+
+    const ul = document.createElement('ul');
+    document.getElementById('myItemList').appendChild(ul);
+    secretCodes.forEach(code => {
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.innerHTML += code[0] + ' : \t \n' + code[1];
+    });
+
+
+    setInterval(() => {
+      actualBackground++;
+      actualBackground = actualBackground % backgrounds;
+      document.body.style.backgroundImage = `url("images/wallpapers/wp${actualBackground}.jpg")`;
+    }, 1000);
+  </script>
+</body>
+
+</html>

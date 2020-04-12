@@ -1,0 +1,29 @@
+body {
+  background: url(images/wallpapers/wp0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  -webkit-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  font-size: large;
+  /* text-shadow: 1px 1px 0px red;  */
+  font-family: 'diplomaregular', Arial, sans-serif;
+  /* //, -1px -1px 0px coral; */
+}
+
+@font-face {
+  font-family: 'diplomaregular';
+  src: url('font/diploma-webfont.woff2') format('woff2'),
+       url('font/diploma-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+ul {
+  list-style-type: none;
+  margin: 10px;
+}
+audio {
+  display: inline;
+}
