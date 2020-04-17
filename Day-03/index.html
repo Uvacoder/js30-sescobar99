@@ -88,23 +88,7 @@
   <img id="image"
     src="https://images.unsplash.com/photo-1557008075-7f2c5efa4cfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=642&q=80">
 
-  <script>
-    const inputs = document.querySelectorAll('.controls input');
-
-    function handleUpdate() {
-      const suffix = this.dataset.sizing || '';
-      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-    }
-
-    inputs.forEach(input => input.addEventListener('change', handleUpdate));
-    // inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
-
-    var loadFile = function (event) {
-      var image = document.getElementById('image');
-      image.src = URL.createObjectURL(event.target.files[0]);
-    };
-
-  </script>
+  <script src="script.js">   </script>
 
 
 </body>
