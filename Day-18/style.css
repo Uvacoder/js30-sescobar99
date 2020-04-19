@@ -1,0 +1,20 @@
+body {
+    align-content: center;
+    background: orangered;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+
+  }
+
+  li {
+    padding: 5px;
+  }
+
+  span {
+    border: 1px solid black;
+    padding: 1px;
+  }   
