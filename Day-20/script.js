@@ -18,15 +18,33 @@ recognition.addEventListener('result', e => {
         p = document.createElement('p');
         words.appendChild(p);
     }
-    if (transcript.includes('rasputin')) window.open('https://www.youtube.com/watch?v=kvDMlk3kSYg', '_blank');
-    if (transcript.includes('scatman')) window.open('https://www.youtube.com/watch?v=Hy8kmNEo1i8', '_blank');
-    if (transcript.includes('rock it for me')) window.open('https://www.youtube.com/watch?v=fBGSJ3sbivI', '_blank');
-    if (transcript.includes('vampire')) window.open('https://www.youtube.com/watch?v=3RTIXUzCr2M', '_blank');
-    if (transcript.includes('party')) window.open('https://www.youtube.com/watch?v=6Zbi0XmGtMw', '_blank');
-    if (transcript.includes('himno')) window.open('https://www.youtube.com/watch?v=UkW9oMMdHwk', '_blank');
-    if (transcript.includes('secret')) window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
-    
-   
+
+    let aux = transcript.toLowerCase();
+
+    if (aux.includes('rasputin') || aux.includes('rasputín')) {
+        window.open('https://www.youtube.com/watch?v=kvDMlk3kSYg', '_blank');
+        recognition.abort();
+    } else if (aux.includes('scatman')) {
+        window.open('https://www.youtube.com/watch?v=Hy8kmNEo1i8', '_blank');
+        recognition.abort();
+    } else if (aux.includes('rock it for me')) {
+        window.open('https://www.youtube.com/watch?v=fBGSJ3sbivI', '_blank');
+        recognition.abort();
+    } else if (aux.includes('vampire')) {
+        window.open('https://www.youtube.com/watch?v=3RTIXUzCr2M', '_blank');
+        recognition.abort();
+    } else if (aux.includes('party')) {
+        window.open('https://www.youtube.com/watch?v=6Zbi0XmGtMw', '_blank');
+        recognition.abort();
+    } else if (aux.includes('himno')) {
+        window.open('https://www.youtube.com/watch?v=UkW9oMMdHwk', '_blank');
+        recognition.abort();
+    } else if (aux.includes('secret')) {
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+        recognition.abort();
+    }
+
+
     console.log(transcript);
 
 });
