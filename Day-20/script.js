@@ -42,10 +42,14 @@ recognition.addEventListener('result', e => {
     } else if (aux.includes('secret')) {
         window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
         recognition.abort();
+    } else if (aux.includes('rap')) {
+        window.open('https://www.youtube.com/watch?v=dY2sfuA1UPc', '_blank');
+        recognition.abort();
+    } else if (aux.includes('festin') || aux.includes('festín')) {
+        window.open('https://www.youtube.com/watch?v=NQNzAkBF4uw', '_blank');
+        recognition.abort();
     }
-
-
-    console.log(transcript);
+    // console.log(transcript);
 
 });
 
