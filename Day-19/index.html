@@ -11,6 +11,21 @@
 
   <div class="photobooth">
     <div class="controls">
+      <input type="radio" id="regular" name="sortRadio" value="regular">
+      <label for="regular">Regular</label>
+
+      <input type="radio" id="redEffect" name="sortRadio" value="redEffect" checked>
+      <label for="redEffect">Red</label>
+
+      <input type="radio" id="rgbSplit" name="sortRadio" value="rgbSplit">
+      <label for="rgbSplit">Split</label>
+
+      <input type="radio" id="greenScreen" name="sortRadio" value="greenScreen">
+      <label for="greenScreen">Green Screen</label>
+
+      <input type="checkbox" id="ghost">
+      <label for="ghost">Ghost mode</label>
+
       <button onClick="takePhoto()">Take Photo</button>
       <div class="rgb">
         <label for="rmin">Red Min:</label>
