@@ -37,7 +37,7 @@ recognition.addEventListener('result', e => {
             recognition.abort();
         }
     });
-    console.log(transcript);
+    // console.log(transcript);
 });
 
 recognition.addEventListener('end', recognition.start);
