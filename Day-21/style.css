@@ -34,6 +34,7 @@ body {
     font-size: 60px;
     display: flex;
     align-items: center;
+    margin: 0;
   }
 
   .units {
