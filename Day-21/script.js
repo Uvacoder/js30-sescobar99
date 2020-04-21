@@ -17,5 +17,5 @@ window.navigator.geolocation.watchPosition((data) => {
 });
 
 function roundTwoDec(number){
-  Math.round(( number + Number.EPSILON) * 100) / 100
+  return Math.round(( number + Number.EPSILON) * 100) / 100;
 }
