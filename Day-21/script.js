@@ -35,7 +35,7 @@ if (window.DeviceOrientationEvent) {
     // console.log(rotateDegrees);   
     // console.log(event);
     degree.textContent = `${360-Math.round(rotateDegrees)}°`;
-    if (rotateDegrees < 0.5 || rotateDegrees > 359.5) {
+    if (rotateDegrees < 2 || rotateDegrees > 358) {
       arrow.style.transition = 'all 0s';
     } else {
       arrow.style.transition = originalTransition;
