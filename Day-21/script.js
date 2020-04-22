@@ -2,16 +2,20 @@ const arrow = document.querySelector('.arrow');
 const speed = document.querySelector('.speed-value');
 const lat = document.querySelector('.lat');
 const lon = document.querySelector('.lon');
-const alpha = document.querySelector('.alpha');
+const degree = document.querySelector('.degree');
 const originalTransition = arrow.style.transition;
+let orientation= false;
 
 
 window.navigator.geolocation.watchPosition((data) => {
-  console.log(data);
-  speed.textContent = roundTwoDec(data.coords.speed);
-  // arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+  // console.log(data);
+  speed.textContent = roundTwoDec(data.coords.speed);  
   lat.textContent = roundTwoDec(data.coords.latitude);
   lon.textContent = roundTwoDec(data.coords.longitude);
+  if(!orientation){
+    arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+
+  }
 
 }, (err) => {
   console.log(err);
@@ -24,19 +28,18 @@ function roundTwoDec(number) {
 
 
 if (window.DeviceOrientationEvent) {
-  window.addEventListener("deviceorientationabsolute", function (event) {
-  // window.addEventListener("deviceorientation", function (event) {
-    // alpha: rotation around z-axis    
-    console.log(event);
+  orientation = true;
+  window.addEventListener("deviceorientationabsolute", function (event) {  
+    // alpha: rotation around z-axis   
     var rotateDegrees = event.alpha;
-    arrow.style.transform = `rotate(${rotateDegrees}deg)`;
-    console.log(rotateDegrees);    
-    alpha.textContent = roundTwoDec(rotateDegrees);    
-    if(rotateDegrees < 1 || rotateDegrees > 359){
+    // console.log(rotateDegrees);   
+    // console.log(event);
+    degree.textContent = `${360-Math.round(rotateDegrees)}°`;
+    if (rotateDegrees < 0.5 || rotateDegrees > 359.5) {
       arrow.style.transition = 'all 0s';
-    }else{
+    } else {
       arrow.style.transition = originalTransition;
     }
-    
+    arrow.style.transform = `rotate(${rotateDegrees}deg)`;
   }, true);
 }
