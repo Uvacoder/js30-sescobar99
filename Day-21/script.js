@@ -23,10 +23,9 @@ function roundTwoDec(number) {
 
 
 if (window.DeviceOrientationEvent) {
-  window.addEventListener("deviceorientation", function (event) {
-    // alpha: rotation around z-axis
-    var absolute = DeviceOrientationEvent.absolute;
-    console.log(absolute);
+  window.addEventListener("deviceorientationabsolute", function (event) {
+    // alpha: rotation around z-axis    
+    console.log(event);
     var rotateDegrees = event.alpha;
     arrow.style.transform = `rotate(${360-rotateDegrees}deg)`;
     console.log(rotateDegrees);
