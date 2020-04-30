@@ -3,6 +3,7 @@ const scoreBoard = document.querySelector('.score');
 const levelBoard = document.querySelector('.level');
 const objBoard = document.querySelector('.obj');
 const moles = document.querySelectorAll('.mole');
+const button = document.getElementById('button');
 let lastHole;
 
 let maxTime = 1000;
@@ -43,6 +44,7 @@ function peep() {
 }
 
 function startGame() {
+    button.disabled = true;
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
@@ -52,6 +54,7 @@ function startGame() {
         if (score >= levelUpScore) {
             levelUp();
         }
+        button.disabled = false;
     }, gameTime);
 }
 
